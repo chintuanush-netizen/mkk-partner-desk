@@ -210,3 +210,5 @@
 .bp footer .inner{align-items:center}
 .bp footer img{height:46px;width:auto}
 @media (max-width:640px){.bp .hero .kgr{width:76px;top:16px}}
+.bp .spec span{letter-spacing:.1em;font-size:9.5px}
+.bp .face{letter-spacing:.16em}
