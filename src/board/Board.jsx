@@ -7,6 +7,7 @@ import { Sheet } from '../components/Sheet.jsx';
 
 const CloseButton = ({ onClick }) => <button className="x" type="button" aria-label="Close" onClick={onClick}>×</button>;
 import { LABEL, PLAN_H, PLAN_W, PT, asset, costLines } from './plan.js';
+import { brand } from '../lib/brand.js';
 import '../styles/board.css';
 
 const PROJECT = 'KGR Fortune Anandam Villas';
@@ -129,9 +130,11 @@ export function Board({ embedded = false }) {
     <div className="bp" style={embedded ? { paddingBottom: 90 } : undefined}>
       <header className="hero pad">
         <div className="plan" aria-hidden="true" />
+        <img className="kgr" src={brand('kgr-fortune-logo.png')} alt="KGR Fortune Infra Builders LLP" />
         <div className="inner">
           <div className="eyebrow"><span className="phase-pill">Phase 1 · Launch</span><i />Channel Partner Inventory · Live</div>
-          <h1>Anandam Villas<span>by KGR Fortune</span></h1>
+          <h1 style={{ margin: 0 }}><img className="logo" src={brand('anandam-logo.png')} alt="KGR Fortune Anandam Villas" /></h1>
+          <p className="tagline">Find your inner peace and absolute serenity</p>
           <p className="lede">Every villa open for sale, in one place. Tap any villa to see where it sits on the plan, share it with a client or build a cost sheet.</p>
           <div className="presented"><span>Sales mandate <b>Milke Khareedo</b></span><span>Technology <b>Leadnest</b></span></div>
           <span className="updated">{fmtUpdated(updated)}</span>
@@ -236,7 +239,7 @@ export function Board({ embedded = false }) {
           </section>
         </div>
       </main>
-      <footer className="pad"><div className="inner"><span>Plot in sq yd · built-up in sft</span><span>KGR Fortune × Milke Khareedo · Powered by Leadnest</span></div></footer>
+      <footer className="pad"><div className="inner"><img src={brand('kgr-fortune-logo-dark.png')} alt="KGR Fortune Infra Builders LLP" /><span>Plot in sq yd · built-up in sft</span><span>Sales mandate: Milke Khareedo · Powered by Leadnest</span></div></footer>
 
       <Sheet open={!!sheet} onClose={() => setSheet(null)}>
         {sheet?.mode === 'pricing' && (

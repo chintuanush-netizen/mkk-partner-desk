@@ -1,6 +1,7 @@
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { Icon, Logo } from './Icons.jsx';
+import { Icon } from './Icons.jsx';
+import { brand } from '../lib/brand.js';
 import { useAuth } from '../lib/auth.jsx';
 import { useData } from '../lib/data.jsx';
 import { SettingsSheet } from '../pages/admin/Settings.jsx';
@@ -11,7 +12,7 @@ export function TopBar({ subtitle = 'Partner Desk', showSettings, onSettings, sh
   return (
     <header className="top">
       <div className="in">
-        <Logo />
+        <img className="emblem" src={brand('anandam-emblem.png')} alt="" />
         <div className="brand"><b>Anandam Villas</b><span>{subtitle}</span></div>
         <span className="sp" />
         {showSettings && (

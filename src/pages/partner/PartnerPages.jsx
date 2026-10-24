@@ -6,6 +6,7 @@ import { daysLeft, prot } from '../../lib/leads.js';
 import { DESK, memberNo } from '../../lib/format.js';
 import { Page } from '../../components/Shell.jsx';
 import { Icon } from '../../components/Icons.jsx';
+import { brand } from '../../lib/brand.js';
 import { Funnel, HBars, LeadCard } from '../shared/LeadParts.jsx';
 import { LeadSheet } from '../shared/LeadSheet.jsx';
 
@@ -44,7 +45,7 @@ export function PartnerHome() {
         {leads.length ? leads.slice(0, 5).map((l) => <LeadCard key={l.id} lead={l} onOpen={(x) => setOpen(x.id)} />)
           : <p className="empty">No leads yet. Tap Register lead to add your first one.</p>}
       </div>
-      <p className="foot-note">KGR Fortune × Milke Khareedo · Milke Khareedo Private Limited, Hyderabad<br />Partner desk {DESK} · Technology by Leadnest</p>
+      <p className="foot-note"><img src={brand('kgr-fortune-logo-dark.png')} alt="KGR Fortune Infra Builders LLP" />KGR Fortune × Milke Khareedo · Milke Khareedo Private Limited, Hyderabad<br />Partner desk {DESK} · Technology by Leadnest</p>
       <LeadSheet leadId={open} onClose={() => setOpen(null)} />
     </Page>
   );

@@ -2,22 +2,29 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '../../lib/supabase.js';
 import { useAuth } from '../../lib/auth.jsx';
-import { Icon, Logo } from '../../components/Icons.jsx';
+import { Icon } from '../../components/Icons.jsx';
+import { brand } from '../../lib/brand.js';
 import { errMsg } from '../../lib/format.js';
 
 const BASE = () => window.location.origin + import.meta.env.BASE_URL;
 
 function AuthFrame({ title, subtitle, children, foot }) {
   return (
-    <div className="auth">
-      <Logo />
-      <div className="bn">Anandam Villas</div>
-      <div className="bs">KGR Fortune × Milke Khareedo · Partner Desk</div>
-      <h1>{title}</h1>
-      <p className="sub">{subtitle}</p>
-      <div className="card">{children}</div>
-      {foot && <p className="foot">{foot}</p>}
-    </div>
+    <>
+      <div className="auth-band">
+        <img src={brand('anandam-logo.png')} alt="KGR Fortune Anandam Villas" />
+        <span className="script">Sell together, grow together</span>
+        <span className="bs">Milke Khareedo · Partner Desk</span>
+      </div>
+      <div className="auth">
+        <div className="card">
+          <div className="auth-head"><h1>{title}</h1><p className="sub">{subtitle}</p></div>
+          {children}
+        </div>
+        {foot && <p className="foot">{foot}</p>}
+        <div className="auth-foot"><span>A project by</span><img src={brand('kgr-fortune-logo-dark.png')} alt="KGR Fortune Infra Builders LLP" /></div>
+      </div>
+    </>
   );
 }
 
